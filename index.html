@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Initializing...</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    #terminal {
+      white-space: pre-wrap;
+      max-width: 800px;
+      margin: auto;
+      padding-top: 50px;
+    }
+
+    .blinker {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+  <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+
+  <script>
+    const lines = [
+      "Accessing secure server...",
+      "Bypassing firewall...",
+      "Establishing remote connection...",
+      "Injecting payload...",
+      "Collecting data: ████████...",
+      "Decrypting mainframe...",
+      "Authentication complete.",
+      "Welcome Agent...",
+      "Initializing surprise in 3...",
+      "2...",
+      "1...",
+      "Launching 🎵🎵🎵"
+    ];
+
+    const terminal = document.getElementById("terminal");
+    const audio = document.getElementById("clickSound");
+    let index = 0;
+
+    function typeLine() {
+      if (index < lines.length) {
+        terminal.innerHTML += lines[index] + '\n';
+        index++;
+        setTimeout(typeLine, 500);
+      } else {
+        setTimeout(() => {
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }, 1500);
+      }
+    }
+
+    // Start effect
+    audio.play();
+    typeLine();
+  </script>
+</body>
+</html>
